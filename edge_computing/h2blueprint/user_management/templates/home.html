@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block contents %}
+<div class="row mt-5">
+  <div class="col-12 text-center">
+    <h1>h2blueprint 홈페이지</h1>
+  </div>
+</div>
+<div class="row mt-5">
+  {% if request.session.user %}
+  <div class="col-3">
+    <button class="btn btn-primary btn-block" onclick="location.href='/user_management/passwordchange/'">PW 변경</button>
+  </div>
+  <div class="col-3">
+    <button class="btn btn-primary btn-block" onclick="location.href='/user_management/logout/'">로그아웃</button>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary btn-block" onclick="location.href='/user_management/sendemail/'">이메일 전송</button>
+  </div>
+  <div class="col-12 text-center">
+    <iframe src="https://kverse.kangwon.ac.kr/duri"
+      style="overflow-x:hidden; overflow:auto; width:100%; min-height:800px;"></iframe>
+  </div>
+  {% else %}
+  <div class="col-6">
+    <button class="btn btn-primary btn-block" onclick="location.href='/user_management/register/'">회원가입</button>
+  </div>
+  <div class="col-6">
+    <button class="btn btn-primary btn-block" onclick="location.href='/user_management/login/'">로그인</button>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary btn-block" onclick="location.href='/user_management/sendemail/'">이메일 전송</button>
+  </div>
+  <div class="col-12 text-center">
+    <img src="static/Spin-loading.gif" style="overflow-x:hidden; overflow:auto; width:100%; min-height:300px;">
+  </div>
+
+  {% endif %}
+</div>
+{% endblock %}
